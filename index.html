@@ -7,18 +7,18 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
+            padding: 50px 0 0 0; /* เว้นด้านบน */
             background: linear-gradient(#ffdee9, #b5fffc);
-            height: 100vh;
+            min-height: 100vh; /* ให้ความสูงอย่างน้อยเต็มจอ แต่เลื่อนต่อได้ */
             display: flex;
-            justify-content: flex-start; /* ให้เริ่มจากบนลงล่าง */
-            align-items: center;
             flex-direction: column;
+            align-items: center;
             font-family: 'Prompt', sans-serif;
-            overflow: hidden;
             text-align: center;
-            padding-top: 50px; /* เว้นระยะจากด้านบน */
+            overflow-x: hidden; /* กันเลื่อนซ้าย-ขวา */
+            overflow-y: auto; /* อนุญาตเลื่อนขึ้นลง */
         }
+
 
         h1 {
             font-size: 3em;

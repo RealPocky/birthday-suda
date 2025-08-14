@@ -1,21 +1,155 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
+    <!DOCTYPE html>
+    <html lang="th">
+    <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>สุขสันต์วันเกิด</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="container">
-        <img src="profile.jpg" alt="Profile" class="profile-img">
-        <h1>🎉 สุขสันต์วันเกิด 🎉</h1>
-        <h2>19/08/68</h2>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(#ffdee9, #b5fffc);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            font-family: 'Prompt', sans-serif;
+            overflow: hidden;
+            text-align: center;
+        }
 
-        <div class="message">🎉 ตั้งใจเรียนนะ สู้ๆ โตเป็นสาวแล้ว ยังสวยเหมือนเดิมเลยนะ 😊 🎉</div>
-        <div class="message">ขอโทษด้วยที่ทำได้แค่นี้ ช่วงนี้จะสอบ ต้องอ่านหนังสือเยอะเลย อังกฤษนี่เค้าก็จะรอดมั้ยไม่รู้เนี่ย 555</div>
-        <div class="message">เธอก็สู้ๆ อายุ 19 วันนี้ที่ 19 ด้วย เป็นปีที่ดีแน่นอน เป็นสาวแล้ว หนุ่มๆ รุมจีบแย่เลย</div>
-        <div class="message">ก็ยังคิดถึงอยู่แหละ ฝันบ่อยจนหลอนละสู้ๆนะ เค้าอยากเก่งได้แบบเธอจัง 5555</div>
-    </div>
-</body>
-</html>
+        h1 {
+            font-size: 3em;
+            color: #ff4d6d;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            animation: zoomIn 2s ease-in-out;
+        }
+
+        h2 {
+            font-size: 1.2em;
+            color: #333;
+            background: rgba(255, 255, 255, 0.7);
+            padding: 10px 15px;
+            border-radius: 10px;
+            margin: 10px 0;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            animation: fadeInText 1s ease forwards;
+        }
+
+        h2:nth-of-type(1) { animation-delay: 1s; }
+        h2:nth-of-type(2) { animation-delay: 2s; }
+        h2:nth-of-type(3) { animation-delay: 3s; }
+        h2:nth-of-type(4) { animation-delay: 4s; }
+
+        img.cake {
+            width: 200px;
+            cursor: pointer;
+            animation: bounce 2s infinite;
+            margin-top: 20px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .balloon {
+            position: absolute;
+            width: 40px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(1); opacity: 1; }
+            100% { transform: translateY(-200px) scale(1.2); opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes fadeInText {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .message {
+            display: none;
+            font-size: 1.3em;
+            margin-top: 20px;
+            color: #444;
+            text-align: center;
+            padding: 0 20px;
+            animation: fadeIn 1s ease-in-out forwards;
+            max-width: 300px;
+        }
+    </style>
+    </head>
+    <body>
+
+        <img src="img/img_1.jpg" alt="รูปของเขา" class="photo">
+        <h1>🎉 สุขสันต์วันเกิด 🎉</h1>
+        <h1>19/08/68</h1>
+        <h2>🎉 ตั้งใจเรียนนะ สู้ๆ โตเป็นสาวแล้ว ยังสวยเหมือนเดิมเลยนะ 😊 🎉</h2>
+        <h2>ขอโทษด้วยที่ทำได้แค่นี้ ช่วงนี้จะสอบ ต้องอ่านหนังสือเยอะเลย อังกฤษเค้าก็จะรอดมั้ยไม่รู้เนี่ย 555</h2>
+        <h2>เธอก็สู้ๆละ 19 วันที่ 19 ด้วยเป็นปีที่ดีแน่เเลย เป็นสาวแล้ว หนุ่ม ๆ รุมจีบแย่เลย</h2>
+        <h2>ก็ยังคิดถึงอยู่แหละ ฝันบ่อยจนหลอนละสู้ๆนะ เค้าอยากเก่งได้แบบเธอจัง 5555</h2>
+
+        <!-- เค้กวันเกิด -->
+        <img src="img/cake.png" alt="Birthday Cake" id="cake" class="cake">
+        
+        <div class="message" id="message">
+            ขอให้ปีนี้เป็นปีที่ดี เต็มไปด้วยความสุข ความสำเร็จ และรอยยิ้ม 💖
+        </div>
+
+        <script>
+            const cake = document.getElementById("cake");
+            const message = document.getElementById("message");
+
+            cake.addEventListener("click", () => {
+                message.style.display = "block";
+            });
+
+            // ลูกโป่งหลายสี
+            const balloonColors = [
+                "https://cdn-icons-png.flaticon.com/512/616/616490.png",
+                "https://cdn-icons-png.flaticon.com/512/616/616482.png",
+                "https://cdn-icons-png.flaticon.com/512/616/616484.png"
+            ];
+
+            function createBalloon() {
+                const balloon = document.createElement("img");
+                balloon.src = balloonColors[Math.floor(Math.random() * balloonColors.length)];
+                balloon.classList.add("balloon");
+                balloon.style.left = Math.random() * window.innerWidth + "px";
+                balloon.style.animationDuration = (Math.random() * 3 + 4) + "s";
+                document.body.appendChild(balloon);
+
+                setTimeout(() => {
+                    balloon.remove();
+                }, 7000);
+            }
+
+            setInterval(createBalloon, 800);
+        </script>
+
+    </body>
+    </html>
